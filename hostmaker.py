@@ -104,7 +104,7 @@ numChanges = check.group("numChanges")
 #print numChanges
 
 if numChanges < 10:
-    print stamp()+"Will Replace when Implemented"
-    #subprocess.check_output("mv -f /tmp/hosts /etc/hosts")
+    print stamp()+"Replacing File"
+    subprocess.check_output("mv -f /tmp/hosts /etc/hosts")
 else:
     print stamp()+"Too Many Changes to /etc/hosts file, Aborting."
