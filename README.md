@@ -14,6 +14,7 @@ __host_prefix.txt__
  is a standard file to place at the top of the hosts file. Hosts (under ubuntu for example) not only like their localhost (127.0.0.1) entry but a local name (127.0.1.1) entry as well for the local host. rather than have complex logic associated with divining (and possibly incorrectly) this entry, you just code it in for a given host (and any entries you want every time.)
 
 __hostUpdater.py__
+
  updates a google spreadsheet from a hosts file by appending to the end of the spreadsheet. (doesn't merge) This is a great way to take your current DNSMasq driven host file and start populating your "inventory" sheet without the labor.
 
 Both scripts assume the file is at /etc/hosts
