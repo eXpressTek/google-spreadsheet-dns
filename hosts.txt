@@ -1,0 +1,151 @@
+127.0.0.1	localhost
+#192.168.1.25	management
+
+# public
+#208.74.176.114	hq
+
+# net
+192.168.1.1	gateway			ghisjcrtr01
+192.168.1.6	procurve2		ghisjcsw12
+172.16.7.10  	ghisjcSW01	sw01
+172.16.7.13  	ghisjcSW02	sw02
+172.16.7.11 	ghisjcSW04	sw04
+192.168.1.76	ghisjcSW05	sw05
+192.168.1.84	ghisjcSW06	sw06
+172.16.1.10	ghisjcSW07      sw07
+
+# servers
+192.168.1.24	dev1
+192.168.1.24	helmy-ubuntu		ghisjcubu02
+192.168.2.24	helmy-ubuntu-10g
+192.168.1.25	management		ghisjcubu01 mgmt
+
+192.168.1.34	ghisjc10gsw01
+
+172.16.7.12     ghisjcKVM01 kvm01
+192.168.1.99    ghisjcPI01  pi01
+
+192.168.1.26	ghisjcPROD01     prod01     production1             pipeline1
+192.168.2.26	ghisjcPROD01-10g prod01 production1-10g
+
+192.168.1.28	ghisjcPROD02     prod02     production2             pipeline2
+192.168.2.28	ghisjcPROD02-10g prod02-10g production2-10g
+
+192.168.1.20	ghisjcPROD03     prod03     production3             pipeline3
+192.168.2.20	ghisjcPROD03-10g prod03-10g production3-10g
+
+192.168.1.22	ghisjcPROD04     prod04     production4             pipeline4
+192.168.2.22	ghisjcPROD04-10g prod04-10g production4-10g
+
+192.168.1.9	ghisjcPROD05     prod05     production5             pipeline5
+192.168.2.9	ghisjcPROD05-10g prod05-10g production5-10g
+192.168.1.126	ghisjcPROD05-bmc prod05-bmc production5-bmc
+
+192.168.1.8	ghisjcPROD06     prod06     production6             pipeline6
+192.168.2.8	ghisjcPROD06-10g prod06-10g production6-10g
+192.168.1.160	ghisjcPROD06-bmc prod06-bmc production6-bmc
+
+172.16.70.25    ghisjcPROD07     prod07     production7             pipeline7
+#172.16.70.25	ghisjcPROD07-10g prod07-10g production7-10g
+172.16.70.106	ghisjcPROD07-bmc prod07-bmc production7-bmc
+
+172.16.70.26    ghisjcPROD08     prod08     production8             pipeline8
+#172.16.70.26	ghisjcPROD08-10g prod08-10g production8-10g
+172.16.70.101	ghisjcPROD08-bmc prod08-bmc production8-bmc
+
+#these need console visits, identification and password sets to get working correctly.
+192.168.1.87	production10x-bmc
+192.168.1.88	production11x-bmc
+192.168.1.90	production12x-bmc
+192.168.1.89	production13x-bmc
+
+
+192.168.1.23	lims-02
+192.168.1.27	lims-01 lims
+192.168.1.31	ghisjcNAS01 ghisjcWARP01 warp warp01 warp1
+192.168.1.32	ghisjcNAS01-2 ghisjcWARP01-2 warp-2 warp01-2
+192.168.2.31	ghisjcNAS01-10g ghisjcWARP01-10g warp-10g
+192.168.1.33	ghisjcNAS01-bmc ghisjcWARP01-bmc warp01-bmc
+
+172.16.70.5 	ghisjcWARP03 warp03
+172.16.70.100	ghisjcWARP0-bmc warp03-bmc
+
+192.168.1.47	ghisjctsysAP
+
+192.168.1.48	ghisjcNAS05-console warp02-console warp2-bmc warp02-bmc
+192.168.1.164	ghisjcNAS05-console2 warp02-console2 warp2-bmc2 warp02-bmc2
+192.168.1.49	ghisjcNAS05 warp02 warp2
+
+192.168.1.35	ghisjcESX01 esx01 vmware1
+192.168.2.35	ghisjcESX01-10g esx01-10g
+192.168.1.79	ghisjcESX01-bmc
+
+192.168.1.36	ghisjcVMVCS01 vcenter
+192.168.2.36	ghisjcVMVCS01-10g
+
+192.168.1.37	ghisjcESX02 vmware2 esx02
+192.168.2.37	ghisjcESX02-10g esx02-10g
+192.168.1.53	ghisjcESX02-bmc esx02-bmc
+
+192.168.1.144	ghisjcESX03 esx03
+192.168.2.144	ghisjcESX03-10g esx03-10g
+192.168.1.139	ghisjcESX03-bmc esx03-bmc
+
+192.168.1.156	ghisjcESX04 esx04
+192.168.1.143	ghisjcESX04-bmc esx04-bmc
+
+192.168.1.38	ghisjcVMDP01	vmdp01	ghisjcvmdp01.corp.guardanthealth.com
+192.168.1.9	ghisjcVMDP03	vmdp03	ghisjcvmdp03.corp.guardanthealth.com
+192.168.1.7	ghisjcVMDP05	vmdp05	ghisjcvmdp05.corp.guardanthealth.com
+#192.168.1.38	ghisjcVMDP01	vmdp01	ghisjcvmdp01.corp.guardanthealth.com
+#192.168.2.38	ghisjcVMDP01-10g vmdp01-10g	ghisjcvmdp01-10g.corp.guardanthealth.com
+#192.168.2.38	ghisjcvmdp01.corp.guardanthealth.com
+192.168.1.39	ghisjcvmdp02.corp.guardanthealth.com
+#192.168.2.39	ghisjcvmdp02.corp.guardanthealth.com
+
+192.168.1.140	ghisjchpq01	hyperic hpq01
+192.168.1.85	ghisjcNAS02	nas02
+192.168.1.139	ghisjchpqdb01	hypericdb hpqdb01
+192.168.1.41    ghisjcNAS03 nas03 synology1812
+192.168.1.42    ghisjcNAS03-2 nas03-2 synology1812-2
+192.168.1.43    ghisjcNAS04 nas04 synologyhs
+192.168.1.44    ghisjcNAS04-2 nas04-2 synologyhs-2
+192.168.1.114	ghisjcUPS01 ghsjcups01	
+192.168.1.113	ghisjcUPS02
+192.168.1.55	ghisjcUPS03
+192.168.1.104	ghisjcPDU01
+192.168.1.117	ghisjcub05
+192.168.1.119	ghpsjcub01              portaltomcat      pub01
+172.16.42.104	ghpsjcub02              portalproxy       pub02
+192.168.1.147	ghpsjcUB03
+192.168.1.121	ghisjcawssg01
+192.168.1.170	ghpsjcUB07		ldap01
+
+192.168.1.145	ghisjcWS03 ws03
+192.168.1.153	ghisjcHiSeq01 ghisjcHS1 HiSeq01	hiseq1
+192.168.1.138	ghisjcHiSeq02 ghisjcHS2 HiSeq02	hiseq2
+
+192.168.1.195	ghisjcSolarWind solarwinds
+
+172.16.44.90	ghisjcPRINT01 print01 lz01
+
+192.168.1.149	mac-mini
+
+192.168.1.183	ghisjcLX02 lx02
+
+#polycom sip phones
+192.168.1.135	ghisjcPOLY01 poly01
+192.168.1.134	ghisjcPOLY02 poly02
+192.168.1.73	ghisjcPOLY03 poly03
+192.168.1.142	ghisjcPOLY04 poly04
+192.168.1.181	ghisjcPOLY05 poly05
+192.168.1.69	ghisjcPOLY06 poly06
+192.168.1.75	ghisjcPOLY07 poly07
+192.168.1.179	ghisjcPOLY08 poly08
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
