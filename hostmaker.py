@@ -101,7 +101,7 @@ check = re.search("\|\s+(?P<numChanges>[0-9]+)", diffstat)
 if check is not None:
     numChanges = check.group("numChanges")
     
-    print numChanges
+    #print numChanges
     
     if int(numChanges) < 10:
         print stamp()+"Replacing File"
