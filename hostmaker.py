@@ -105,7 +105,12 @@ if check is not None:
     
     if int(numChanges) < 10:
         print stamp()+"Replacing File"
-        subprocess.check_output("mv -f /tmp/hosts /etc/hosts")
+        #subprocess.check_output("mv -f /tmp/hosts /etc/hosts")
+        outFile = open("/etc/hosts", "w")
+
+        outFile.write(output)
+
+        outFile.close()
     else:
         print stamp()+"Too Many Changes to /etc/hosts file, Aborting."
 else:
