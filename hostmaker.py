@@ -103,7 +103,7 @@ numChanges = check.group("numChanges")
 
 print numChanges
 
-if numChanges < 10:
+if int(numChanges) < 10:
     print stamp()+"Replacing File"
     subprocess.check_output("mv -f /tmp/hosts /etc/hosts")
 else:
