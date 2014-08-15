@@ -98,13 +98,15 @@ diffstat = subprocess.check_output("diff /etc/hosts /tmp/hosts | diffstat", shel
 #print diffstat
 
 check = re.search("\|\s+(?P<numChanges>[0-9]+)", diffstat)
-
-numChanges = check.group("numChanges")
-
-print numChanges
-
-if int(numChanges) < 10:
-    print stamp()+"Replacing File"
-    subprocess.check_output("mv -f /tmp/hosts /etc/hosts")
+if check is not None:
+    numChanges = check.group("numChanges")
+    
+    print numChanges
+    
+    if int(numChanges) < 10:
+        print stamp()+"Replacing File"
+        subprocess.check_output("mv -f /tmp/hosts /etc/hosts")
+    else:
+        print stamp()+"Too Many Changes to /etc/hosts file, Aborting."
 else:
-    print stamp()+"Too Many Changes to /etc/hosts file, Aborting."
+    print stamp()+"No Changes Necessary, Hosts File is already up-to-date"
