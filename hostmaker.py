@@ -10,6 +10,8 @@ import time
 import ConfigParser
 import getopt
 
+debug = False
+
 #make a timestamp
 def stamp():
     return time.strftime("%Y-%m-%dT%H:%M:%SZ ",time.gmtime())
@@ -29,8 +31,9 @@ try:
    for opt, arg in opts:
        if opt in ("-o", "--override"):
            override = True
-           print "Override has been set to True."
-           sys.exit(0)
+           print "Will Override hosts file"
+           if debug:
+               sys.exit(0)
 except getopt.GetoptError:
     override = False
 
