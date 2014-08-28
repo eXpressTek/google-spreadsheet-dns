@@ -8,6 +8,7 @@ import re
 import sys
 import time
 import ConfigParser
+import getopt
 
 #make a timestamp
 def stamp():
@@ -21,46 +22,66 @@ password = config.get("Configuration", "password")
 spreadsheet = config.get("Configuration", "spreadsheet")
 printHost = config.getboolean("Configuration", "printHost")
 
+override = False
+
+try:
+   opts, args = getopt.getopt(sys.argv[1:],"o",["override"])
+   for opt, arg in opts:
+       if opt in ("-o", "--override"):
+           override = True
+           print "Override has been set to True."
+           sys.exit(0)
+except getopt.GetoptError:
+    override = False
+
 # Login with your Google account
 gc = gspread.login(username, password)
 
-# Open a worksheet from spreadsheet with one shot
-worksheet = gc.open_by_key(spreadsheet).sheet1
-
-# Find a cell with exact string value
-cell = worksheet.find("DNS Entries")
-
-# Get all values from the DNS Entries column
-values_list = worksheet.col_values(cell.col)
-
-#lists of hosts
+#make a lists of hosts for use later
 hostsEntries = []
 
-for value in values_list:
-    #print value
-    #if there is a value here
-    if value is not None:
-        #not the first one
-        if value != "DNS Entries":
-            #split the values if there are multiple ones
-            entries = value.split("\n")
-            #print entries
-            for entry in entries:
-                #if it's a comment, just add it
-                if entry[:1] == "#":
-                    tup = entry, ""
+spread = gc.open_by_key(spreadsheet)
+worksheet_list = spread.worksheets()
+
+# Open a worksheet from spreadsheet with one shot
+worksheet = None
+
+for sheet in spread.worksheets():
+    worksheet = sheet
+    # Find a cell with exact string value
+    cell = None
+    try:
+        cell = worksheet.find("DNS Entries")
+    except gspread.exceptions.CellNotFound:
+        continue
+    # Get all values from the DNS Entries column
+    values_list = worksheet.col_values(cell.col)
+    
+    for value in values_list:
+        #print value
+        #if there is a value here
+        if value is not None:
+            #not the first one
+            if value != "DNS Entries":
+                #split the values if there are multiple ones
+                entries = value.split("\n")
+                #print entries
+                for entry in entries:
+                    #if it's a comment, just add it
+                    if entry[:1] == "#":
+                        tup = entry, ""
+                        hostsEntries.append(tup)
+                        continue
+                    #for each value
+                    #print entry
+                    val = entry.split("=")
+                    #replace for formatting later
+                    val[1] = val[1].replace(" ", "\t")
+                    #package the tuple
+                    tup = val[0], val[1]
+                    #append to the list
                     hostsEntries.append(tup)
-                    continue
-                #for each value
-                #print entry
-                val = entry.split("=")
-                #replace for formatting later
-                val[1] = val[1].replace(" ", "\t")
-                #package the tuple
-                tup = val[0], val[1]
-                #append to the list
-                hostsEntries.append(tup)
-            
+                
 #now we've got all the elements, unpack them into a file
 #print hostsEntries
 
@@ -103,7 +124,7 @@ if check is not None:
     
     #print numChanges
     
-    if int(numChanges) < 10:
+    if (int(numChanges) < 10) or (override):
         print stamp()+"Replacing File"
         #subprocess.check_output("mv -f /tmp/hosts /etc/hosts")
         outFile = open("/etc/hosts", "w")
